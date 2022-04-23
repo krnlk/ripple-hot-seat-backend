@@ -7,6 +7,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
 
 import com.comarch.ripplehotseat.model.Room;
 import com.comarch.ripplehotseat.model.User;
@@ -16,6 +17,7 @@ import com.comarch.ripplehotseat.service.RoomService;
 import com.comarch.ripplehotseat.service.UserService;
 
 @SpringBootApplication
+@EnableWebSecurity
 public class RippleHotSeatApplication implements CommandLineRunner {
 
 	@Autowired

@@ -12,6 +12,7 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.comarch.ripplehotseat.dto.UserDTO;
@@ -45,6 +46,16 @@ public class UserRestController {
 	public UserDTO findByLogin(@PathVariable("login") String login) {
 		return ObjectMapperUtils.map(userService.findByLogin(login), UserDTO.class);
 	}
+	
+	@GetMapping(value = "/login")
+    public ResponseEntity<?> login(@RequestParam("login") String login, @RequestParam("password") String password) {
+        return new ResponseEntity<String>("ok", HttpStatus.OK);
+    }
+
+    @GetMapping(value = "/logout")
+    public ResponseEntity<?> logout() {
+        return new ResponseEntity<String>("ok", HttpStatus.OK);
+    }
 	
 	@PostMapping(value = "/save")
 	public ResponseEntity<?> save(@RequestBody UserDTO userDTO) {
